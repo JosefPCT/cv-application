@@ -5,7 +5,9 @@ import { GeneralInformation } from './components/GeneralInformation'
 
 function App() {
   const [pageIndex, setPageIndex] = useState(0);
-  const [genInfo, setGenInfo] = useState({name: "Steve", email: null, contactNumber: null});
+  const [genInfo, setGenInfo] = useState( {name: "Steve", email: null, contactNumber: null} );
+  const [educInfo, setEducInfo] = useState( {school: 'FCAN', course: 'BSCS', graduateYear: 2016} );
+  const [profInfo, setProfInfo] = useState( {company: null, position: null, responsibilities: null, yearWorkedFrom: null, yearWorkedTo: null } )
 
   const pages = [
   <Home onSubmit={nextHandler} />, 
@@ -18,10 +20,11 @@ function App() {
 
   function changeGeneralInfoHandler(e){
     e.preventDefault();
-    console.log(e.target.name.value);
-    console.log(e.target.email.value)
-    console.log(e.target.contactNumber.value);
-    setGenInfo({...genInfo, name: e.target.name.value, email: e.target.email.value, contactNumber: e.target.contactNumber.value})
+    let info = e.target;
+    // console.log(e.target.name.value);
+    // console.log(e.target.email.value)
+    // console.log(e.target.contactNumber.value);
+    setGenInfo({...genInfo, name: info.name.value, email: info.email.value, contactNumber: info.contactNumber.value})
   }
 
   return (
