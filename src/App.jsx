@@ -10,7 +10,7 @@ function App() {
   const [count, setCount] = useState(0)
   const [pageIndex, setPageIndex] = useState(0);
 
-  const pages = [<Home onSubmit={nextHandler} />, <GeneralInformation onSubmit={nextHandler} isEditable={true}/>]
+  const pages = [<Home onSubmit={nextHandler} />, <GeneralInformation onSubmit={nextHandler} isEditable={false}/>]
 
   function nextHandler(){
     pageIndex !== pages.length - 1 ? setPageIndex(pageIndex + 1) : setPageIndex(0);
