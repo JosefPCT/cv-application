@@ -3,6 +3,7 @@ import './App.css'
 import { Home } from './components/Home'
 import { GeneralInformation } from './components/GeneralInformation'
 import { EducationalInformation } from './components/EducationalInformation';
+import { ProfessionalInformation } from './components/ProfessionalInformation';
 
 function App() {
   const [pageIndex, setPageIndex] = useState(0);
@@ -13,8 +14,9 @@ function App() {
   const pages = [
   <Home onSubmit={nextHandler} />, 
   <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onSubmit={nextHandler} isEditable={true} submitHandler={changeInfoHandlerHandler}/>,
-  <EducationalInformation school={educInfo.school} course={educInfo.course} graduateYear={educInfo.graduateYear} onNext={nextHandler} onSave={changeInfoHandlerHandler} />
-   ];
+  <EducationalInformation school={educInfo.school} course={educInfo.course} graduateYear={educInfo.graduateYear} onNext={nextHandler} onSave={changeInfoHandlerHandler} />,
+  <ProfessionalInformation company={profInfo.company} position={profInfo.position} responsibilities={profInfo.responsibilities} yearWorkedFrom={profInfo.yearWorkedFrom} yearWorkedTo={profInfo.yearWorkedTo} onNext={nextHandler} onSave={changeInfoHandlerHandler}/>
+  ];
 
   function nextHandler(){
     pageIndex !== pages.length - 1 ? setPageIndex(pageIndex + 1) : setPageIndex(0);
@@ -39,10 +41,19 @@ function App() {
           ...educInfo, 
           school: info.school.value, 
           course: info.course.value, 
-          graduateYear: info.graduateYear.value })
+          graduateYear: info.graduateYear.value 
+        })
       break;
       case 'profinfo':
         console.log('professional information');
+        setProfInfo( {
+          ...profInfo,
+          company: info.company.value,
+          position: info.position.value,
+          responsibilities: info.responsibilities.value,
+          yearWorkedFrom: info.yearWorkedFrom.value,
+          yearWorkedTo: info.yearWorkedTo.value,
+        });
       break;
       default:
         console.log('invalid choice');
