@@ -25,12 +25,6 @@ export function ProfessionalInformation( {company, position, responsibilities, y
                 </label>
             </div>
             <button type="submit">Save</button>
-            <p>Test</p>
-            {company}
-            {position}
-            {responsibilities}
-            {yearWorkedFrom}
-            {yearWorkedTo}
         </form>
     )
   }

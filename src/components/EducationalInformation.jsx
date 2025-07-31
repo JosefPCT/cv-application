@@ -3,7 +3,7 @@ export function EducationalInformation( {school, course, graduateYear, onNext, o
 
   function editable(){
     return( 
-            <form action="GET" onSubmit={onSave} id='educinfo'>
+        <form action="GET" onSubmit={onSave} id='educinfo'>
             <div>
                 <label>
                     Name of School
@@ -19,12 +19,6 @@ export function EducationalInformation( {school, course, graduateYear, onNext, o
                 </label>
             </div>
             <button type="submit">Save</button>
-            <p>Test</p>
-            {school}
-            <p>Email:</p>
-            {course}
-            <p>Contact num:</p>
-            {graduateYear}
         </form>
     );
   }

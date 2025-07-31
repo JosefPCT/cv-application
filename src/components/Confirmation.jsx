@@ -1,4 +1,12 @@
-export function Confirmation( {genInfo, educInfo, profInfo} ){
+import { useState } from "react";
+
+export function Confirmation( {genInfo, educInfo, profInfo, onEdit} ){
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  function toggleIsSubmitted(){
+    isSubmitted ? setIsSubmitted(false) : setIsSubmitted(true);
+  }
+
   function displayGenInfo(){
     return (
       <section>
@@ -34,11 +42,29 @@ export function Confirmation( {genInfo, educInfo, profInfo} ){
     );
   }
 
+  function displayNotSubmitted(){
+    return(
+        <>
+            {displayGenInfo()}
+            {displayEducInfo()}
+            {displayProfInfo()}
+            <button onClick={onEdit}> Edit </button>
+            <button onClick={toggleIsSubmitted}>Submit CV</button>
+        </>
+    );
+  }
+
+  function displaySubmitted(){
+    return(
+        <>
+        <p>Your CV has been submitted.</p>
+        </>
+    )
+  }
+
   return(
     <div>
-        {displayGenInfo()}
-        {displayEducInfo()}
-        {displayProfInfo()}
+        { isSubmitted ? displaySubmitted() : displayNotSubmitted()}
     </div>
     
   );

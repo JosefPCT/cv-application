@@ -14,17 +14,23 @@ function App() {
 
   const pages = [
   <Home onSubmit={nextHandler} />, 
-  <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onSubmit={nextHandler} isEditable={true} submitHandler={changeInfoHandlerHandler}/>,
+  <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onNext={nextHandler} isEditable={true} onSave={changeInfoHandlerHandler}/>,
   <EducationalInformation school={educInfo.school} course={educInfo.course} graduateYear={educInfo.graduateYear} onNext={nextHandler} onSave={changeInfoHandlerHandler} />,
   <ProfessionalInformation company={profInfo.company} position={profInfo.position} responsibilities={profInfo.responsibilities} yearWorkedFrom={profInfo.yearWorkedFrom} yearWorkedTo={profInfo.yearWorkedTo} onNext={nextHandler} onSave={changeInfoHandlerHandler}/>,
-  <Confirmation genInfo={genInfo} educInfo={educInfo} profInfo={profInfo} />
+  <Confirmation genInfo={genInfo} educInfo={educInfo} profInfo={profInfo} onEdit={editHandler} />
   ];
 
-  function nextHandler(){
+  function nextHandler(e){
     pageIndex !== pages.length - 1 ? setPageIndex(pageIndex + 1) : setPageIndex(0);
+    changeInfoHandlerHandler(e);
+  }
+
+  function editHandler(){
+    setPageIndex(1);
   }
 
   function changeInfoHandlerHandler(e){
+    console.log(e.target.previousSibling.email);
     e.preventDefault();
     let info = e.target;
     switch(info.id){

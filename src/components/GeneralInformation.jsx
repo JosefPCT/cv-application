@@ -1,4 +1,4 @@
-export function GeneralInformation( { onSubmit, isEditable, submitHandler, name, email, contactNumber }){
+export function GeneralInformation( { onNext, isEditable, onSave, name, email, contactNumber }){
 
 //   if(isEditable){
 //    return(
@@ -12,7 +12,7 @@ export function GeneralInformation( { onSubmit, isEditable, submitHandler, name,
 
  function editable(){
     return(
-        <form action="GET" onSubmit={submitHandler} id='geninfo'>
+        <form action="GET" onSubmit={onSave} id='geninfo'>
             <div>
                 <label>
                     Name
@@ -20,21 +20,14 @@ export function GeneralInformation( { onSubmit, isEditable, submitHandler, name,
                 </label>
                 <label>
                     Email
-                    <input type="email" id="email" name="email"></input>
+                    <input type="email" id="email" name="email" defaultValue={email}></input>
                 </label>
                 <label>
                     Phone Number
-                    <input type="tel" id="contactNumber" name="contact-number"></input>
+                    <input type="tel" id="contactNumber" name="contact-number" defaultValue={contactNumber}></input>
                 </label>
             </div>
             <button type="submit">Save</button>
-            <p>Test</p>
-            {name}
-            <p>Email:</p>
-            {email}
-            <p>Contact num:</p>
-            {contactNumber}
-
         </form>
     );
  }
@@ -49,7 +42,7 @@ export function GeneralInformation( { onSubmit, isEditable, submitHandler, name,
     <div>
         <h1>General Information</h1>
         {isEditable ? editable() : notEditable()}
-        <button onClick={onSubmit}>Next</button>
+        <button onClick={onNext}>Next</button>
     </div>
   );
 }
