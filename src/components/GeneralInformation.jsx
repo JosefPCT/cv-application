@@ -1,4 +1,4 @@
-export function GeneralInformation( { onNext, isEditable, onSave, name, email, contactNumber }){
+export function GeneralInformation( { isEditable, onSave, name, email, contactNumber }){
 
 //   if(isEditable){
 //    return(
@@ -42,7 +42,6 @@ export function GeneralInformation( { onNext, isEditable, onSave, name, email, c
     <div>
         <h1>General Information</h1>
         {isEditable ? editable() : notEditable()}
-        <button onClick={onNext}>Next</button>
     </div>
   );
 }

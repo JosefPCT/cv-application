@@ -1,4 +1,4 @@
-export function ProfessionalInformation( {company, position, responsibilities, yearWorkedFrom, yearWorkedTo, onNext, onSave}){
+export function ProfessionalInformation( {company, position, responsibilities, yearWorkedFrom, yearWorkedTo, onSave}){
   function editable(){
     return(
         <form action="GET" onSubmit={onSave} id='profinfo'>
@@ -24,7 +24,7 @@ export function ProfessionalInformation( {company, position, responsibilities, y
                     <input type="number" id="yearWorkedTo" name="yearWorkedTo" min="1900" max="2900" placeholder="YYYY" defaultValue={yearWorkedTo}></input>
                 </label>
             </div>
-            <button type="submit">Save</button>
+            <button type="submit">Next</button>
         </form>
     )
   }
@@ -33,7 +33,6 @@ export function ProfessionalInformation( {company, position, responsibilities, y
     <div>
         <h1>Professional Information</h1>
         {editable()}
-        <button onClick={onNext}>Next</button>
     </div>
   );
 } 

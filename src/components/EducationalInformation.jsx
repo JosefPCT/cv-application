@@ -1,4 +1,4 @@
-export function EducationalInformation( {school, course, graduateYear, onNext, onSave}){
+export function EducationalInformation( {school, course, graduateYear, onSave}){
 
 
   function editable(){
@@ -18,7 +18,7 @@ export function EducationalInformation( {school, course, graduateYear, onNext, o
                     <input type="number" id="graduateYear" name="graduateYear" min="1900" max="2900" placeholder="YYYY" defaultValue={graduateYear}></input>
                 </label>
             </div>
-            <button type="submit">Save</button>
+            <button type="submit">Next</button>
         </form>
     );
   }
@@ -30,7 +30,6 @@ export function EducationalInformation( {school, course, graduateYear, onNext, o
         {course}
         {graduateYear}
         {editable()}
-        <button onClick={onNext}>Next</button>
     </div>
   );
 }
