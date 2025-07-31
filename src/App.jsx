@@ -2,6 +2,7 @@ import { useState } from 'react'
 import './App.css'
 import { Home } from './components/Home'
 import { GeneralInformation } from './components/GeneralInformation'
+import { EducationalInformation } from './components/EducationalInformation';
 
 function App() {
   const [pageIndex, setPageIndex] = useState(0);
@@ -11,27 +12,33 @@ function App() {
 
   const pages = [
   <Home onSubmit={nextHandler} />, 
-  <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onSubmit={nextHandler} isEditable={true} submitHandler={changeGeneralInfoHandler}/>
+  <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onSubmit={nextHandler} isEditable={true} submitHandler={changeInfoHandlerHandler}/>,
+  <EducationalInformation school={educInfo.school} course={educInfo.course} graduateYear={educInfo.graduateYear} onNext={nextHandler} onSave={changeInfoHandlerHandler} />
    ];
 
   function nextHandler(){
     pageIndex !== pages.length - 1 ? setPageIndex(pageIndex + 1) : setPageIndex(0);
   }
 
-  function changeGeneralInfoHandler(e){
+  function changeInfoHandlerHandler(e){
     e.preventDefault();
     let info = e.target;
-    // console.log(e.target.name.value);
-    // console.log(e.target.email.value)
-    // console.log(e.target.contactNumber.value);
-    setGenInfo({...genInfo, name: info.name.value, email: info.email.value, contactNumber: info.contactNumber.value})
+    switch(info.id){
+      case 'geninfo':
+        console.log('general information');
+        setGenInfo({...genInfo, name: info.name.value, email: info.email.value, contactNumber: info.contactNumber.value})
+      break;
+      case 'educinfo':
+        console.log('educational information');
+        setEducInfo( {...educInfo, school: info.school.value, course: info.course.value, graduateYear: info.graduateYear.value })
+      break;
+    }
+
   }
+
 
   return (
     <>
-      {/* <HelloWorld />
-      <Home />
-      <GeneralInformation /> */}
       {pages[pageIndex]}
     </>
   )

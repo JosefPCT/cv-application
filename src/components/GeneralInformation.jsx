@@ -12,7 +12,7 @@ export function GeneralInformation( { onSubmit, isEditable, submitHandler, name,
 
  function editable(){
     return(
-        <form action="GET" onSubmit={submitHandler}>
+        <form action="GET" onSubmit={submitHandler} id='geninfo'>
             <div>
                 <label>
                     Name
