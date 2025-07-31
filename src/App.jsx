@@ -26,12 +26,26 @@ function App() {
     switch(info.id){
       case 'geninfo':
         console.log('general information');
-        setGenInfo({...genInfo, name: info.name.value, email: info.email.value, contactNumber: info.contactNumber.value})
+        setGenInfo({
+          ...genInfo, 
+          name: info.name.value, 
+          email: info.email.value, 
+          contactNumber: info.contactNumber.value
+        })
       break;
       case 'educinfo':
         console.log('educational information');
-        setEducInfo( {...educInfo, school: info.school.value, course: info.course.value, graduateYear: info.graduateYear.value })
+        setEducInfo( {
+          ...educInfo, 
+          school: info.school.value, 
+          course: info.course.value, 
+          graduateYear: info.graduateYear.value })
       break;
+      case 'profinfo':
+        console.log('professional information');
+      break;
+      default:
+        console.log('invalid choice');
     }
 
   }
