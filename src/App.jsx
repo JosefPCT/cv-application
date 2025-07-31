@@ -4,6 +4,7 @@ import { Home } from './components/Home'
 import { GeneralInformation } from './components/GeneralInformation'
 import { EducationalInformation } from './components/EducationalInformation';
 import { ProfessionalInformation } from './components/ProfessionalInformation';
+import { Confirmation } from './components/Confirmation';
 
 function App() {
   const [pageIndex, setPageIndex] = useState(0);
@@ -15,7 +16,8 @@ function App() {
   <Home onSubmit={nextHandler} />, 
   <GeneralInformation name={genInfo.name} email={genInfo.email} contactNumber={genInfo.contactNumber} onSubmit={nextHandler} isEditable={true} submitHandler={changeInfoHandlerHandler}/>,
   <EducationalInformation school={educInfo.school} course={educInfo.course} graduateYear={educInfo.graduateYear} onNext={nextHandler} onSave={changeInfoHandlerHandler} />,
-  <ProfessionalInformation company={profInfo.company} position={profInfo.position} responsibilities={profInfo.responsibilities} yearWorkedFrom={profInfo.yearWorkedFrom} yearWorkedTo={profInfo.yearWorkedTo} onNext={nextHandler} onSave={changeInfoHandlerHandler}/>
+  <ProfessionalInformation company={profInfo.company} position={profInfo.position} responsibilities={profInfo.responsibilities} yearWorkedFrom={profInfo.yearWorkedFrom} yearWorkedTo={profInfo.yearWorkedTo} onNext={nextHandler} onSave={changeInfoHandlerHandler}/>,
+  <Confirmation genInfo={genInfo} educInfo={educInfo} profInfo={profInfo} />
   ];
 
   function nextHandler(){
