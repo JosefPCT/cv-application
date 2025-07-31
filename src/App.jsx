@@ -20,9 +20,9 @@ function App() {
   <Confirmation genInfo={genInfo} educInfo={educInfo} profInfo={profInfo} onEdit={editHandler} />
   ];
 
-  function nextHandler(e){
+  function nextHandler(){
     pageIndex !== pages.length - 1 ? setPageIndex(pageIndex + 1) : setPageIndex(0);
-    changeInfoHandlerHandler(e);
+    // changeInfoHandlerHandler(e.target.previousSibling);
   }
 
   function editHandler(){
@@ -30,7 +30,6 @@ function App() {
   }
 
   function changeInfoHandlerHandler(e){
-    console.log(e.target.previousSibling.email);
     e.preventDefault();
     let info = e.target;
     switch(info.id){
@@ -67,6 +66,7 @@ function App() {
         console.log('invalid choice');
     }
 
+    nextHandler();
   }
 
 

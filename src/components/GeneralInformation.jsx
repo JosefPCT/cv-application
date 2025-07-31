@@ -27,7 +27,7 @@ export function GeneralInformation( { onNext, isEditable, onSave, name, email, c
                     <input type="tel" id="contactNumber" name="contact-number" defaultValue={contactNumber}></input>
                 </label>
             </div>
-            <button type="submit">Save</button>
+            <button type="submit">Next</button>
         </form>
     );
  }
