@@ -44,13 +44,13 @@ export function Confirmation( {genInfo, educInfo, profInfo, onEdit} ){
 
   function displayNotSubmitted(){
     return(
-        <>
+        <div class='card-container'>
             {displayGenInfo()}
             {displayEducInfo()}
             {displayProfInfo()}
             <button onClick={onEdit}> Edit </button>
             <button onClick={toggleIsSubmitted}>Submit CV</button>
-        </>
+        </div>
     );
   }
 

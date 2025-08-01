@@ -2,13 +2,13 @@ export function ProfessionalInformation( {company, position, responsibilities, y
   function editable(){
     return(
         <form action="GET" onSubmit={onSave} id='profinfo'>
-            <div>
+            <div class="form-container card-container">
                 <label>
                     Company
                     <input type="text" id="company" name="company" defaultValue={company}></input>
                 </label>
                 <label>
-                    position
+                    Position
                     <input type="text" id="position" name="position" defaultValue={position}></input>
                 </label>
                 <label>

@@ -1,3 +1,32 @@
 h1{
     color: blue;
 }
+
+form{
+    display: flex;
+    flex-direction: column;
+    
+    
+}
+
+.card-container{
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 24px;
+}
+
+.form-container{
+  display: flex;
+  flex-direction: column;
+  /* border: 1px solid red; */
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+label{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  
+}

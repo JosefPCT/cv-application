@@ -4,7 +4,7 @@ export function EducationalInformation( {school, course, graduateYear, onSave}){
   function editable(){
     return( 
         <form action="GET" onSubmit={onSave} id='educinfo'>
-            <div>
+            <div class="form-container card-container">
                 <label>
                     Name of School
                     <input type="text" id="school" name="school" defaultValue={school}></input>
@@ -26,9 +26,6 @@ export function EducationalInformation( {school, course, graduateYear, onSave}){
   return(
     <div>
         <h1>Educational Information</h1>
-        {school}
-        {course}
-        {graduateYear}
         {editable()}
     </div>
   );

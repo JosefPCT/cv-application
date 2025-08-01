@@ -13,7 +13,7 @@ export function GeneralInformation( { isEditable, onSave, name, email, contactNu
  function editable(){
     return(
         <form action="GET" onSubmit={onSave} id='geninfo'>
-            <div>
+            <div class='form-container card-container'>
                 <label>
                     Name
                     <input type="text" id="name" name="name" defaultValue={name}></input>
@@ -23,7 +23,7 @@ export function GeneralInformation( { isEditable, onSave, name, email, contactNu
                     <input type="email" id="email" name="email" defaultValue={email}></input>
                 </label>
                 <label>
-                    Phone Number
+                    Number
                     <input type="tel" id="contactNumber" name="contact-number" defaultValue={contactNumber}></input>
                 </label>
             </div>
